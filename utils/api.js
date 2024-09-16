@@ -16,3 +16,9 @@ export const getAllTopics = () => {
     return response.data.topics;
   });
 };
+
+export const getArticleByID = (article_id) => {
+  return ncNews.get(`/articles/${article_id}`).then((response) => {
+    return response.data.article;
+  });
+};

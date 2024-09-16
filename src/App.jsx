@@ -1,9 +1,11 @@
+import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { getAllArticles, getAllTopics } from "../utils/api";
 import { Header } from "../components/Header";
 import { Homepage } from "../components/Homepage";
 import { ParamsBar } from "../components/ParamsBar";
-import { getAllArticles, getAllTopics } from "../utils/api";
+import { SingleArticlePage } from "../components/SingleArticlePage";
 
 function App() {
   const [sortBy, setSortBy] = useState("created_at");
@@ -45,12 +47,27 @@ function App() {
         setLimit={setLimit}
         setPage={setPage}
         allTopics={allTopics}
-        totalPages={totalPages} 
+        totalPages={totalPages}
       />
       <Routes>
         <Route
           path="/"
-          element={<Homepage allArticles={allArticles} isLoading={isLoading} />}
+          element={
+            <Homepage
+              allArticles={allArticles}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
+        <Route
+          path="/articles/:articleid"
+          element={
+            <SingleArticlePage
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         />
       </Routes>
     </>

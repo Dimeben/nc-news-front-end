@@ -1,0 +1,137 @@
+body {
+  background-color: #00473e;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-link {
+  color: white;
+}
+
+#home-link:hover {
+  color: black;
+}
+
+.header h1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: red;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  background-color: #f2f7f5;
+  padding: 20px;
+}
+
+.grid-container .content {
+  flex: 1 1 0px;
+  min-width: 150px;
+  box-sizing: border-box;
+  height: auto;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  padding: 5px;
+  color: black;
+}
+
+.grid-container .content img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.row-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  background-color: #f2f7f5;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.row-container .content {
+  flex-shrink: 0;
+  color: black;
+}
+
+.column-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  background-color: #f2f7f5;
+  padding: 20px;
+}
+
+img {
+  max-width: 200px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.content {
+  color: black;
+}
+
+.form div {
+  padding-top: 5px;
+}
+
+.input-digits {
+  width: 25px;
+}
+
+.grid-container img {
+  width: calc(50% - 20px);
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -14,12 +14,11 @@ export const CommentContainer = ({ selectedArticle }) => {
     });
   }, [selectedArticle.article_id]);
 
-
   return (
     <section className="column-container">
-     {articleComments.map((comment) => {
-        return <CommentCard key={comment.comment_id} comment={comment} />
-     })}
+      {articleComments.map((comment) => {
+        return <CommentCard key={comment.comment_id} comment={comment} />;
+      })}
     </section>
   );
 };

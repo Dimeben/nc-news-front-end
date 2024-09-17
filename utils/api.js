@@ -25,7 +25,6 @@ export const getArticleByID = (article_id) => {
 
 export const getArticleCommentsByID = (article_id) => {
   return ncNews.get(`/articles/${article_id}/comments`).then((response) => {
-    console.log(response.data.comments);
     return response.data.comments;
   });
 };
@@ -43,5 +42,13 @@ export const decreaseArticleVotes = (article_id) => {
     .patch(`/articles/${article_id}`, { inc_votes: -1 })
     .then((response) => {
       return response.data.article;
+    });
+};
+
+export const postComment = (article_id, commentObj) => {
+  return ncNews
+    .post(`/articles/${article_id}/comments`, commentObj)
+    .then((response) => {
+      return response.data.comment;
     });
 };

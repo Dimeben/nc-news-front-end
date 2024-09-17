@@ -37,7 +37,7 @@ export const ParamsBar = ({
 
   return (
     <div className="params-bar">
-      <div className="row">
+      <div className="column">
         <label>Sort By:</label>
         <select
           className="drop-down"
@@ -52,7 +52,7 @@ export const ParamsBar = ({
         </select>
       </div>
 
-      <div className="row">
+      <div className="column">
         <label>Order:</label>
         <select
           className="drop-down"
@@ -64,7 +64,7 @@ export const ParamsBar = ({
         </select>
       </div>
 
-      <div className="row">
+      <div className="column">
         <label>Article Limit:</label>
         <select
           className="drop-down"
@@ -77,7 +77,7 @@ export const ParamsBar = ({
         </select>
       </div>
 
-      <div className="row">
+      <div className="column">
         <label>Page:</label>
         <select
           className="drop-down"
@@ -92,7 +92,7 @@ export const ParamsBar = ({
         </select>
       </div>
 
-      <div className="row">
+      <div className="column">
         <label>Topic:</label>
         <select
           className="drop-down"

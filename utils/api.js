@@ -22,3 +22,10 @@ export const getArticleByID = (article_id) => {
     return response.data.article;
   });
 };
+
+export const getArticleCommentsByID = (article_id) => {
+  return ncNews.get(`/articles/${article_id}/comments`).then((response) => {
+    console.log(response.data.comments);
+    return response.data.comments;
+  });
+};

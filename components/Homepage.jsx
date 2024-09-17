@@ -1,9 +1,9 @@
 import { ArticlesContainer } from "./ArticlesContainer";
 
-export const Homepage = ({ allArticles, isLoading }) => {
+export const Homepage = ({ allArticles }) => {
   return (
     <div className="page">
-      <ArticlesContainer allArticles={allArticles} isLoading={isLoading} />
+      <ArticlesContainer allArticles={allArticles}/>
     </div>
   );
 };

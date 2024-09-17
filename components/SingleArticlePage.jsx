@@ -1,17 +1,17 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticleByID } from "../utils/api";
 import { SingleArticleContainer } from "./SingleArticleContainer";
+import { CommentContainer } from "./CommentsContainer";
 
-export const SingleArticlePage = ({ isLoading, setIsLoading }) => {
+export const SingleArticlePage = () => {
   const { articleid } = useParams();
-  const { state } = useLocation();
-  const [selectedArticle, setSelectedArticle] = useState(state || {});
+  const [selectedArticle, setSelectedArticle] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     getArticleByID(articleid).then((article) => {
-      setSelectedArticle({ article: article });
+      setSelectedArticle(article);
       setIsLoading(false);
     });
   }, []);
@@ -21,7 +21,10 @@ export const SingleArticlePage = ({ isLoading, setIsLoading }) => {
       {isLoading ? (
         "Loading"
       ) : (
-        <SingleArticleContainer selectedArticle={selectedArticle.article} isLoading={isLoading} />
+        <>
+          <SingleArticleContainer selectedArticle={selectedArticle} />
+          <CommentContainer selectedArticle={selectedArticle} />
+        </>
       )}
     </div>
   );

@@ -14,7 +14,7 @@ export const SingleArticlePage = () => {
       setSelectedArticle(article);
       setIsLoading(false);
     });
-  }, []);
+  }, [articleid]);
 
   return (
     <div className="page">

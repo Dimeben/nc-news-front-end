@@ -257,7 +257,7 @@ button:active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 100px;
+  gap: 25px;
   color: #5f6c7b;
   font-size: 0.9rem;
   width: 200px;
@@ -266,6 +266,33 @@ button:active {
 .comment-meta p {
   margin: 0;
   text-align: right;
+}
+
+.delete-button {
+  background-color: #f2f7f5;
+  border: black;
+  border-style: solid;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40px;
+  margin: auto;
+  margin-right: 5%;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c28c95;
+}
+
+.loading {
+  padding: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  margin: auto;
+  margin-right: 5%;
+  transition: background-color 0.3s ease;
 }
 
 @media (max-width: 1024px) {

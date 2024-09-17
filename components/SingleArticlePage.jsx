@@ -4,7 +4,7 @@ import { getArticleByID } from "../utils/api";
 import { SingleArticleContainer } from "./SingleArticleContainer";
 import { CommentContainer } from "./CommentsContainer";
 
-export const SingleArticlePage = () => {
+export const SingleArticlePage = ({ user }) => {
   const { articleid } = useParams();
   const [selectedArticle, setSelectedArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,8 +22,11 @@ export const SingleArticlePage = () => {
         "Loading"
       ) : (
         <>
-          <SingleArticleContainer selectedArticle={selectedArticle} />
-          <CommentContainer selectedArticle={selectedArticle} />
+          <SingleArticleContainer
+            selectedArticle={selectedArticle}
+            user={user}
+          />
+          <CommentContainer selectedArticle={selectedArticle} user={user} />
         </>
       )}
     </div>

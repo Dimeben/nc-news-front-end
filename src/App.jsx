@@ -8,6 +8,13 @@ import { ParamsBar } from "../components/ParamsBar";
 import { SingleArticlePage } from "../components/SingleArticlePage";
 
 function App() {
+  const temporaryDefaultUser = {
+    username: "tickle122",
+    name: "Tom Tickle",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
+  };
+  const [user, setUser] = useState(temporaryDefaultUser);
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("DESC");
   const [topic, setTopic] = useState("");
@@ -70,6 +77,7 @@ function App() {
             <SingleArticlePage
               isLoading={isLoading}
               setIsLoading={setIsLoading}
+              user={user}
             />
           }
         />

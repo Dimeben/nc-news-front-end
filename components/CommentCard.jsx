@@ -39,11 +39,11 @@ export const CommentCard = ({ comment, user }) => {
     <>
       {" "}
       <div className="comments">
-        <div className="vote-buttons">
-          <button>+</button>
-          <button>-</button>
+        <section className="vote-container">
+          <button className="add-vote-buttons">+</button>
+          <button className="minus-vote-buttons">-</button>
           <p className="comment-votes">Votes: {comment.votes}</p>
-        </div>
+        </section>
         <p className="comment-body">{comment.body}</p>
         <div className="comment-meta">
           <p>Author: {comment.author}</p>

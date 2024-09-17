@@ -78,7 +78,7 @@ body {
 }
 
 .grid-container .content .text {
-  font-size: calc(1rem + 1vw); 
+  font-size: calc(1rem + 1vw);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -214,7 +214,7 @@ button:active {
   gap: 20px;
 }
 
-.comment-buttons {
+.vote-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -13,19 +13,26 @@ export const CommentCard = ({ comment }) => {
   });
 
   return (
-    <div className="comments">
-      <div className="comment-buttons">
-        <button>+</button>
-        <button>-</button>
-        <p className="comment-votes">Votes: {comment.votes}</p>
-      </div>
-      <p className="comment-body">{comment.body}</p>
-      <div className="comment-meta">
-        <p>Author: {comment.author}</p>
-        <p>
-          Posted At: {formattedDate}, {formattedTime}
-        </p>
-      </div>
-    </div>
+    <>
+      {" "}
+      {!comment ? (
+        "No comments"
+      ) : (
+        <div className="comments">
+          <div className="vote-buttons">
+            <button>+</button>
+            <button>-</button>
+            <p className="comment-votes">Votes: {comment.votes}</p>
+          </div>
+          <p className="comment-body">{comment.body}</p>
+          <div className="comment-meta">
+            <p>Author: {comment.author}</p>
+            <p>
+              Posted At: {formattedDate}, {formattedTime}
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
-}  
+};

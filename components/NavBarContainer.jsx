@@ -20,25 +20,22 @@ export const NavBarContainer = () => {
           <Link to="/topics/cooking">Cooking</Link>
         </li>
         <li>
-          <Link
-            to={{
-              pathname:
-                "../https://www.linkedin.com/in/ben-mccarthy-40812731a/",
-            }}
+          <a
+            href="https://www.linkedin.com/in/ben-mccarthy-40812731a/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             LinkedIn
-          </Link>
+          </a>
         </li>
         <li>
-          <Link
-            to={{
-              pathname: "../https://github.com/Dimeben",
-            }}
+          <a
+            href="https://github.com/Dimeben"
             target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

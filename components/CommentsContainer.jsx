@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { CommentCard } from "./CommentCard";
 
 export const CommentContainer = ({ selectedArticle }) => {
-  console.log(selectedArticle);
   const [articleComments, setArticleComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

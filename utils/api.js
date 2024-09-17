@@ -29,3 +29,19 @@ export const getArticleCommentsByID = (article_id) => {
     return response.data.comments;
   });
 };
+
+export const increaseArticleVotes = (article_id) => {
+  return ncNews
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((response) => {
+      return response.data.article;
+    });
+};
+
+export const decreaseArticleVotes = (article_id) => {
+  return ncNews
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
+    .then((response) => {
+      return response.data.article;
+    });
+};

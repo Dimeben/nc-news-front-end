@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { getAllArticles, getAllTopics } from "../utils/api";
 import { Header } from "../components/Header";
 import { Homepage } from "../components/Homepage";
@@ -15,7 +15,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [allArticles, setAllArticles] = useState([]);
   const [allTopics, setAllTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [totalArticles, setTotalArticles] = useState(0);
 
   useEffect(() => {
@@ -36,19 +36,23 @@ function App() {
   }, []);
 
   const totalPages = Math.ceil(totalArticles / limit);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
       <Header />
-      <ParamsBar
-        setSortBy={setSortBy}
-        setOrder={setOrder}
-        setTopic={setTopic}
-        setLimit={setLimit}
-        setPage={setPage}
-        allTopics={allTopics}
-        totalPages={totalPages}
-      />
+      {isHomePage && (
+        <ParamsBar
+          setSortBy={setSortBy}
+          setOrder={setOrder}
+          setLimit={setLimit}
+          setPage={setPage}
+          setTopic={setTopic}
+          allTopics={allTopics}
+          totalPages={totalPages}
+        />
+      )}
       <Routes>
         <Route
           path="/"

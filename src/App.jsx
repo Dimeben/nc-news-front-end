@@ -6,6 +6,9 @@ import { Header } from "../components/Header";
 import { Homepage } from "../components/Homepage";
 import { ParamsBar } from "../components/ParamsBar";
 import { SingleArticlePage } from "../components/SingleArticlePage";
+import { NavBarContainer } from "../components/NavBarContainer";
+import { AllTopicsPage } from "../components/AllTopicsPage";
+import { TopicPage } from "../components/TopicPage";
 
 function App() {
   const temporaryDefaultUser = {
@@ -81,7 +84,16 @@ function App() {
             />
           }
         />
+        <Route
+          path="/topics"
+          element={<AllTopicsPage allTopics={allTopics} />}
+        />
+        <Route
+          path="/topics/:topicslug"
+          element={<TopicPage allArticles={allArticles} />}
+        />
       </Routes>
+      <NavBarContainer />
     </>
   );
 }

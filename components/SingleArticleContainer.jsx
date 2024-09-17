@@ -70,44 +70,51 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
       <h2>{selectedArticle.title}</h2>
       <img src={selectedArticle.article_img_url} alt={selectedArticle.title} />
       <p>
-        <b>Topic:</b> {selectedArticle.topic}
+        <b>Topic:</b>{" "}
+        {selectedArticle.topic[0].toUpperCase() +
+          selectedArticle.topic.substring(1)}
       </p>
       <p>
         <b>Author:</b> {selectedArticle.author}
       </p>
       <p>{selectedArticle.body}</p>
-      <p>
-        <b>Votes:</b> {updatedArticle.votes}
+
+      <section className="vote-container">
         <button onClick={handleIncrease}>+</button>
         <button onClick={handleDecrease}>-</button>
-      </p>
+        <p>
+          <b>Votes:{updatedArticle.votes}</b>
+        </p>
+      </section>
       {voteError && (
         <p className="error">
           Sorry, your vote couldn't be added. Please try again later.
         </p>
       )}
-      {!formOpen ? (
+      {!formOpen || commentError ? (
         <div className="content">
-          <button onClick={handleClick}>New comment</button>
+          <button className="post-comment-button" onClick={handleClick}>
+            New comment
+          </button>
           {commentAdded ? <p>Comment Posted</p> : null}
         </div>
       ) : (
-        <div className="content">
+        <section className="content">
           <form className="form" onSubmit={handleSubmit}>
-            <div className="row">
-              <label>Username: </label>
-              <input type="text" required={true} />
-            </div>
-            <div className="row">
-              <label>Comment: </label>
-              <input type="text" required={true} />
-            </div>
-            <div className="row">
-              <button type="submit">Submit</button>
-            </div>
+            <label>Username: </label>
+            <input type="text" required={true} />
+            <label>Comment: </label>
+            <textarea
+              className="textarea"
+              rows="8"
+              cols="50"
+              Type="text"
+              required={true}
+            />
+            <button type="submit">Submit</button>
           </form>
           {commentAdded ? <p>Comment Posted</p> : null}
-        </div>
+        </section>
       )}
       {commentAdded ? (
         <div className="comments">

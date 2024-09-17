@@ -7,7 +7,7 @@ import {
 } from "../utils/api";
 import { formatDate, formatTime } from "../utils/utils";
 
-export const SingleArticleContainer = ({ selectedArticle }) => {
+export const SingleArticleContainer = ({ selectedArticle, user }) => {
   const [updatedArticle, setUpdatedArticle] = useState([]);
   const [voteError, setVoteError] = useState(false);
   const [commentError, setCommentError] = useState(false);

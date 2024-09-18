@@ -9,7 +9,7 @@ import { SingleArticlePage } from "../components/SingleArticlePage";
 import { NavBarContainer } from "../components/NavBarContainer";
 import { AllTopicsPage } from "../components/AllTopicsPage";
 import { TopicPage } from "../components/TopicPage";
-import { NotFound } from "../components/NotFound";
+import { PageNotFound } from "../components/PageNotFound";
 
 function App() {
   const temporaryDefaultUser = {
@@ -91,9 +91,12 @@ function App() {
         />
         <Route
           path="/topics/:topicslug"
-          element={<TopicPage allArticles={allArticles} />}
+          element={
+            <TopicPage allArticles={allArticles} allTopics={allTopics} />
+          }
         />
-        <Route path="*" element={<NotFound />} />;
+        <Route path="/404" element={<PageNotFound />} />;
+        <Route path="*" element={<PageNotFound />} />;
       </Routes>
       <NavBarContainer />
     </>

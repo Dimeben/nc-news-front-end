@@ -9,6 +9,7 @@
 - **JavaScript**
 - **React.js**
 - **React Routers**
+- **State**
 - **HTML**
 - **CSS**
 - **Axios**

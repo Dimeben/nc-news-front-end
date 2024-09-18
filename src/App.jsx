@@ -9,6 +9,7 @@ import { SingleArticlePage } from "../components/SingleArticlePage";
 import { NavBarContainer } from "../components/NavBarContainer";
 import { AllTopicsPage } from "../components/AllTopicsPage";
 import { TopicPage } from "../components/TopicPage";
+import { NotFound } from "../components/NotFound";
 
 function App() {
   const temporaryDefaultUser = {
@@ -92,6 +93,7 @@ function App() {
           path="/topics/:topicslug"
           element={<TopicPage allArticles={allArticles} />}
         />
+        <Route path="*" element={<NotFound />} />;
       </Routes>
       <NavBarContainer />
     </>

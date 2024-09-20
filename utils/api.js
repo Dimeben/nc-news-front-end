@@ -74,3 +74,9 @@ export const decreaseCommentVotes = (comment_id) => {
       return response.data.comment;
     });
 };
+
+export const postArticle = (articleObj) => {
+  return ncNews.post("/articles", articleObj).then((response) => {
+    return response.data.article;
+  });
+};

@@ -14,6 +14,9 @@ export const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/newarticle">Post</Link>
+          </li>
+          <li>
             <Link to="/topics">Topics</Link>
           </li>
           <li>
@@ -32,15 +35,6 @@ export const Header = () => {
               rel="noopener noreferrer"
             >
               LinkedIn
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/Dimeben"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
             </a>
           </li>
         </ul>

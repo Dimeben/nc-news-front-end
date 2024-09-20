@@ -24,14 +24,13 @@ body {
   height: 50px;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(1, 0fr);
   text-align: center;
   padding: 0;
 }
 
 .nav-bar ul {
   list-style-type: none;
-  margin: auto;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -118,7 +117,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
   border-radius: 12px;

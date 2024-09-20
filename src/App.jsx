@@ -6,17 +6,17 @@ import { Header } from "../components/Header";
 import { Homepage } from "../components/Homepage";
 import { ParamsBar } from "../components/ParamsBar";
 import { SingleArticlePage } from "../components/SingleArticlePage";
-import { NavBarContainer } from "../components/NavBarContainer";
 import { AllTopicsPage } from "../components/AllTopicsPage";
 import { TopicPage } from "../components/TopicPage";
 import { PageNotFound } from "../components/PageNotFound";
+import { PostArticlePage } from "../components/PostArticlePage";
 
 function App() {
   const temporaryDefaultUser = {
-    username: "tickle122",
-    name: "Tom Tickle",
+    username: "testuser",
+    name: "Thomas Test",
     avatar_url:
-      "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
+      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   };
   const [user, setUser] = useState(temporaryDefaultUser);
   const [sortBy, setSortBy] = useState("created_at");
@@ -93,10 +93,10 @@ function App() {
             <TopicPage allArticles={allArticles} allTopics={allTopics} />
           }
         />
+        <Route path="newarticle" element={<PostArticlePage user={user} allTopics={allTopics} totalArticles={totalArticles} />} />
         <Route path="/404" element={<PageNotFound />} />;
         <Route path="*" element={<PageNotFound />} />;
       </Routes>
-      {/* <NavBarContainer /> */}
     </>
   );
 }

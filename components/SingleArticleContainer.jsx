@@ -17,6 +17,7 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
   const handleClick = () => {
     setFormOpen(true);
     setCommentAdded(null);
+    setCommentError(false);
   };
 
   const handleIncrease = () => {
@@ -118,11 +119,6 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
       )}
       {commentAdded ? (
         <div className="comments">
-          <div className="vote-buttons">
-            <button>+</button>
-            <button>-</button>
-            <p className="comment-votes">Votes: {commentAdded.votes}</p>
-          </div>
           <p className="comment-body">{commentAdded.body}</p>
           <div className="comment-meta">
             <p>Author: {commentAdded.author}</p>
@@ -133,7 +129,7 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
         </div>
       ) : null}
       {commentError ? (
-        <p>There was a problem posting your comment. Please try again later</p>
+        <p>There was a problem posting your comment. Please try again!</p>
       ) : null}
     </section>
   );

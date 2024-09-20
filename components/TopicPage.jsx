@@ -34,14 +34,16 @@ export const TopicPage = ({ allTopics }) => {
   }
 
   return (
-    <section className="grid-container">
-      {isLoading ? (
-        <p>Loading</p>
-      ) : (
-        filteredArticles.map((article) => {
-          return <ArticlesCard key={article.article_id} article={article} />;
-        })
-      )}
-    </section>
+    <div className="page">
+      <section className="grid-container">
+        {isLoading ? (
+          <p>Loading</p>
+        ) : (
+          filteredArticles.map((article) => {
+            return <ArticlesCard key={article.article_id} article={article} />;
+          })
+        )}
+      </section>
+    </div>
   );
 };

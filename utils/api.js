@@ -58,3 +58,19 @@ export const deleteComment = (comment_id) => {
     return response.data.msg;
   });
 };
+
+export const increaseCommentVotes = (comment_id) => {
+  return ncNews
+    .patch(`/comments/${comment_id}`, { inc_votes: 1 })
+    .then((response) => {
+      return response.data.comment;
+    });
+};
+
+export const decreaseCommentVotes = (comment_id) => {
+  return ncNews
+    .patch(`/comments/${comment_id}`, { inc_votes: -1 })
+    .then((response) => {
+      return response.data.comment;
+    });
+};

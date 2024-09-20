@@ -1,7 +1,12 @@
 import { formatDate, formatTime } from "../utils/utils";
 import bin from "../src/assets/bin.svg";
-import { useState } from "react";
-import { deleteComment } from "../utils/api";
+import { useState, useEffect } from "react";
+import {
+  deleteComment,
+  increaseCommentVotes,
+  decreaseCommentVotes,
+  getArticleCommentsByID,
+} from "../utils/api";
 import Lottie from "lottie-react";
 import loadingAnimation from "../src/assets/loading-animation.json";
 
@@ -9,6 +14,30 @@ export const CommentCard = ({ comment, user }) => {
   const [deleteError, setDeleteError] = useState(false);
   const [deleted, setDeleted] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [updatedVotes, setUpdatedVotes] = useState(comment.votes);
+  const [voteError, setVoteError] = useState(false);
+
+  const handleIncreaseVote = () => {
+    increaseCommentVotes(comment.comment_id)
+      .then((updatedComment) => {
+        setUpdatedVotes(updatedComment.votes);
+        setVoteError(false);
+      })
+      .catch(() => {
+        setVoteError(true);
+      });
+  };
+
+  const handleDecreaseVote = () => {
+    decreaseCommentVotes(comment.comment_id)
+      .then((updatedComment) => {
+        setUpdatedVotes(updatedComment.votes);
+        setVoteError(false);
+      })
+      .catch(() => {
+        setVoteError(true);
+      });
+  };
 
   const handleDelete = () => {
     setIsDeleting(true);
@@ -40,9 +69,13 @@ export const CommentCard = ({ comment, user }) => {
       {" "}
       <div className="comments">
         <section className="vote-container">
-          <button className="add-vote-buttons">+</button>
-          <button className="minus-vote-buttons">-</button>
-          <p className="comment-votes">Votes: {comment.votes}</p>
+          <button className="add-vote-buttons" onClick={handleIncreaseVote}>
+            +
+          </button>
+          <button className="minus-vote-buttons" onClick={handleDecreaseVote}>
+            -
+          </button>
+          <p className="comment-votes">Votes: {updatedVotes}</p>
         </section>
         <p className="comment-body">{comment.body}</p>
         <div className="comment-meta">

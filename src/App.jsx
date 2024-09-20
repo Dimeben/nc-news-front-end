@@ -58,10 +58,6 @@ function App() {
           setSortBy={setSortBy}
           setOrder={setOrder}
           setLimit={setLimit}
-          setPage={setPage}
-          setTopic={setTopic}
-          allTopics={allTopics}
-          totalPages={totalPages}
         />
       )}
       <Routes>
@@ -72,6 +68,8 @@ function App() {
               allArticles={allArticles}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
+              setPage={setPage}
+              totalPages={totalPages}
             />
           }
         />
@@ -98,7 +96,7 @@ function App() {
         <Route path="/404" element={<PageNotFound />} />;
         <Route path="*" element={<PageNotFound />} />;
       </Routes>
-      <NavBarContainer />
+      {/* <NavBarContainer /> */}
     </>
   );
 }

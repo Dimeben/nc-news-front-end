@@ -93,7 +93,16 @@ function App() {
             <TopicPage allArticles={allArticles} allTopics={allTopics} />
           }
         />
-        <Route path="newarticle" element={<PostArticlePage user={user} allTopics={allTopics} totalArticles={totalArticles} />} />
+        <Route
+          path="newarticle"
+          element={
+            <PostArticlePage
+              user={user}
+              allTopics={allTopics}
+              totalArticles={totalArticles}
+            />
+          }
+        />
         <Route path="/404" element={<PageNotFound />} />;
         <Route path="*" element={<PageNotFound />} />;
       </Routes>

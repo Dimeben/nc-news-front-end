@@ -130,9 +130,11 @@ Once an article has been posted, a working link to the new article will be displ
 On the homepage, I created a previous page and next page button. This allows me to easily implement my pagination queries from my back end project. If the user is on the first page, previous page will be unavailable. If they are on the last page, next page will be unavailable.
 <br>
 <br>
-<img src="readme-imgs/11.png" alt="Next page" width="600" height="50">
-<img src="readme-imgs/12.png" alt="Prev page & next page" width="600" height="50">
-<img src="readme-imgs/13.png" alt="Prev page" width="600" height="50">
+<img src="readme-imgs/11.png" alt="Next page" width="700" height="50">
+<br>
+<img src="readme-imgs/12.png" alt="Prev page & next page" width="700" height="50">
+<br>
+<img src="readme-imgs/13.png" alt="Prev page" width="700" height="50">
 <br>
 <br>
 Using React Router, I dealt with errors relating to non-existent endpoints. Any URLs which do not follow the patterns that I have set out will automatically render by 404 page.

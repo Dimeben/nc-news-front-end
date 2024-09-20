@@ -45,8 +45,8 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const commentObj = {
-      username: e.target[0].value,
-      body: e.target[1].value,
+      username: user.username,
+      body: e.target[0].value,
     };
     return postComment(selectedArticle.article_id, commentObj)
       .then((comment) => {
@@ -115,8 +115,7 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
       ) : (
         <section className="content" id="comment-form">
           <form className="form" onSubmit={handleSubmit}>
-            <label htmlFor="username">Username: </label>
-            <input id="username" type="text" required={true} />
+            <p>Posting as: {user.username} </p>
             <label htmlFor="comment">Comment: </label>
             <textarea
               className="textarea"

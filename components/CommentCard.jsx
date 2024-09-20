@@ -1,11 +1,10 @@
 import { formatDate, formatTime } from "../utils/utils";
 import bin from "../src/assets/bin.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   deleteComment,
   increaseCommentVotes,
   decreaseCommentVotes,
-  getArticleCommentsByID,
 } from "../utils/api";
 import Lottie from "lottie-react";
 import loadingAnimation from "../src/assets/loading-animation.json";

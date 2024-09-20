@@ -3,7 +3,6 @@ import { daysAgo } from "../utils/utils";
 import { useState } from "react";
 
 export const ArticlesCard = ({ article }) => {
-  const [isLoading, setisLoading] = useState(true);
   return (
     <article className="content">
       <Link to={`../articles/${article.article_id}`} state={{ article }}>

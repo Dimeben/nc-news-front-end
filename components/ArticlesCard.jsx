@@ -8,7 +8,7 @@ export const ArticlesCard = ({ article }) => {
     <article className="content">
       <Link to={`../articles/${article.article_id}`} state={{ article }}>
         <img src={article.article_img_url} alt={article.title} />
-        <h3 id={`article-title-${article.article_id}`}>{article.title}</h3>
+        <p id={`article-title-${article.article_id}`}>{article.title}</p>
         <p>Votes: {article.votes}</p>
         <p>{daysAgo(article.created_at)} days old</p>
       </Link>

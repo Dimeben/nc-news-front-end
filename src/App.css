@@ -141,12 +141,16 @@ body {
   border: 2px solid #094067;
 }
 
+.content a {
+  color: black;
+}
+
 .grid-container .content {
   background-color: #90b4ce;
   border: 2px solid #094067;
   border-radius: 10px;
   padding: 5px;
-  color: #094067;
+  color: black;
   text-align: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
   display: flex;
@@ -163,6 +167,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: black;
 }
 
 .grid-container .content:hover {

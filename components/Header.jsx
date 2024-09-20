@@ -1,44 +1,58 @@
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ user }) => {
   return (
-    <>
-      <div className="header">
-        <Link to="/" id="home-link">
-          <h1>NC News</h1>
+    <header className="header" role="banner">
+      <h1>
+        <Link to="/" id="home-link" aria-label="Homepage of NC News">
+          NC News
         </Link>
-      </div>
-      <nav className="nav-bar">
+      </h1>
+      <p>Logged in as: {user.username}</p>
+      <nav className="nav-bar" role="navigation" aria-label="Main navigation">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" aria-label="Go to Home">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/newarticle">Post</Link>
+            <Link to="/newarticle" aria-label="Post a new article">
+              Post
+            </Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/topics" aria-label="Browse topics">
+              Topics
+            </Link>
           </li>
           <li>
-            <Link to="/topics/coding">Coding</Link>
+            <Link to="/topics/coding" aria-label="View Coding articles">
+              Coding
+            </Link>
           </li>
           <li>
-            <Link to="/topics/football">Football</Link>
+            <Link to="/topics/football" aria-label="View Football articles">
+              Football
+            </Link>
           </li>
           <li>
-            <Link to="/topics/cooking">Cooking</Link>
+            <Link to="/topics/cooking" aria-label="View Cooking articles">
+              Cooking
+            </Link>
           </li>
           <li>
             <a
               href="https://www.linkedin.com/in/ben-mccarthy-40812731a/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit the creator's LinkedIn profile"
             >
               LinkedIn
             </a>
           </li>
         </ul>
       </nav>
-    </>
+    </header>
   );
 };

@@ -34,7 +34,12 @@ export const TopicPage = ({ allTopics }) => {
   }
 
   return (
-    <div className="page">
+    <main className="page">
+      <header>
+        <h1>
+          {topicslug.charAt(0).toUpperCase() + topicslug.slice(1)} Articles
+        </h1>
+      </header>
       <section className="grid-container">
         {isLoading ? (
           <p>Loading</p>
@@ -44,6 +49,6 @@ export const TopicPage = ({ allTopics }) => {
           })
         )}
       </section>
-    </div>
+    </main>
   );
 };

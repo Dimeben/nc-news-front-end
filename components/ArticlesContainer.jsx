@@ -19,18 +19,19 @@ export const ArticlesContainer = ({ allArticles, totalPages, setPage }) => {
   };
 
   return (
-    <div>
-      <section className="grid-container">
+    <main className="articles-container" role="main">
+      <section className="grid-container" aria-labelledby="articles-heading">
         {allArticles.map((article) => {
           return <ArticlesCard key={article.article_id} article={article} />;
         })}
       </section>
 
-      <div className="pagination-controls">
+      <nav className="pagination-controls" aria-label="Pagination controls">
         <button
           className="pagination-button"
           onClick={handlePrevPage}
           disabled={currentPage === 1}
+          aria-label="Previous page"
         >
           Previous Page
         </button>
@@ -39,10 +40,11 @@ export const ArticlesContainer = ({ allArticles, totalPages, setPage }) => {
           className="pagination-button"
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
+          aria-label="Next page"
         >
           Next Page
         </button>
-      </div>
-    </div>
+      </nav>
+    </main>
   );
 };

@@ -18,10 +18,11 @@ export const ParamsBar = ({ setSortBy, setOrder, setLimit }) => {
   }, [selectedLimit, setLimit]);
 
   return (
-    <div className="params-bar">
+    <section className="params-bar">
       <div className="param-column">
-        <label>Sort By:</label>
+        <label htmlFor="sort-by">Sort By:</label>
         <select
+          id="sort-by"
           className="drop-down"
           value={selectedSortBy}
           onChange={(e) => setSelectedSortBy(e.target.value)}
@@ -35,8 +36,9 @@ export const ParamsBar = ({ setSortBy, setOrder, setLimit }) => {
       </div>
 
       <div className="param-column">
-        <label>Order:</label>
+        <label htmlFor="order">Order:</label>
         <select
+          id="order"
           className="drop-down"
           value={selectedOrder}
           onChange={(e) => setSelectedOrder(e.target.value)}
@@ -47,7 +49,7 @@ export const ParamsBar = ({ setSortBy, setOrder, setLimit }) => {
       </div>
 
       <div className="param-column">
-        <label>Article Limit:</label>
+        <label htmlFor="article-limit">Article Limit:</label>
         <select
           className="drop-down"
           value={selectedLimit}
@@ -58,6 +60,6 @@ export const ParamsBar = ({ setSortBy, setOrder, setLimit }) => {
           <option value={50}>50</option>
         </select>
       </div>
-    </div>
+    </section>
   );
 };

@@ -16,10 +16,14 @@ export const CommentContainer = ({ selectedArticle, user }) => {
 
   if (articleComments.length === 0 && !isLoading) {
     return (
-      <section className="column-container">
-        <div className="comments">
+      <section
+        className="column-container"
+        aria-labelledby="no-comments-heading"
+      >
+        <h2 id="no-comments-heading">Comments</h2>
+        <div className="comments" role="alert">
           <p className="comment-body">
-            <b>Be the first one to comment!</b>
+            <strong>Be the first one to comment!</strong>
           </p>
         </div>
       </section>
@@ -27,17 +31,11 @@ export const CommentContainer = ({ selectedArticle, user }) => {
   }
 
   return (
-    <section className="column-container">
-      {articleComments.map((comment) => {
-        return (
-          <CommentCard
-            key={comment.comment_id}
-            comment={comment}
-            user={user}
-            empty={articleComments.length === 0 ? true : false}
-          />
-        );
-      })}
+    <section className="column-container" aria-labelledby="comments-heading">
+      <h2 id="comments-heading">Comments</h2>
+      {articleComments.map((comment) => (
+        <CommentCard key={comment.comment_id} comment={comment} user={user} />
+      ))}
     </section>
   );
 };

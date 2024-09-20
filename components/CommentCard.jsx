@@ -65,33 +65,50 @@ export const CommentCard = ({ comment, user }) => {
   }
 
   return (
-    <>
-      {" "}
-      <div className="comments">
-        <section className="vote-container">
-          <button className="add-vote-buttons" onClick={handleIncreaseVote}>
-            +
-          </button>
-          <button className="minus-vote-buttons" onClick={handleDecreaseVote}>
-            -
-          </button>
-          <p className="comment-votes">Votes: {updatedVotes}</p>
-        </section>
-        <p className="comment-body">{comment.body}</p>
-        <div className="comment-meta">
-          <p>Author: {comment.author}</p>
-          <p>
-            Posted At: {formatDate(comment)}, {formatTime(comment)}
-          </p>
-          {comment.author === user.username ? (
-            isDeleting ? (
+    <article
+      className="comments"
+      aria-labelledby={`comment-${comment.comment_id}`}
+    >
+      <p className="comment-body">{comment.body}</p>
+
+      <section className="vote-container" aria-label="Vote controls">
+        <button
+          className="add-vote-buttons"
+          onClick={handleIncreaseVote}
+          aria-label="Increase vote"
+        >
+          +
+        </button>
+        <button
+          className="minus-vote-buttons"
+          onClick={handleDecreaseVote}
+          aria-label="Decrease vote"
+        >
+          -
+        </button>
+        <p className="comment-votes">Votes: {updatedVotes}</p>
+      </section>
+      <footer className="comment-meta">
+        <p id={`comment-${comment.comment_id}`}>Comment by {comment.author}</p>
+        <p>
+          Posted At: {formatDate(comment)}, {formatTime(comment)}
+        </p>
+        {comment.author === user.username && (
+          <>
+            {isDeleting ? (
               <Lottie className="loading" animationData={loadingAnimation} />
             ) : (
-              <img onClick={handleDelete} className="delete-button" src={bin} />
-            )
-          ) : null}
-        </div>
-      </div>
-    </>
+              <button
+                onClick={handleDelete}
+                className="delete-button"
+                aria-label="Delete comment"
+              >
+                <img src={bin} alt="Delete comment" />
+              </button>
+            )}
+          </>
+        )}
+      </footer>
+    </article>
   );
 };

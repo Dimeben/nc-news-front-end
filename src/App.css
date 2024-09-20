@@ -16,6 +16,7 @@ body {
   padding: 10px 0;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fffffe;
 }
 
 .header h1 {
@@ -166,7 +167,7 @@ body {
 
 .grid-container .content:hover {
   background-color: #3da9fc;
-  transform: scale(1.05);
+  transform: scale(0.95);
   color: #fffffe;
 }
 

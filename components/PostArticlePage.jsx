@@ -2,12 +2,12 @@ import { PostArticleForm } from "./PostArticleForm";
 
 export const PostArticlePage = ({ user, allTopics, totalArticles }) => {
   return (
-    <section className="page">
+    <main className="page" role="main">
       <PostArticleForm
         user={user}
         allTopics={allTopics}
         totalArticles={totalArticles}
       />
-    </section>
+    </main>
   );
 };

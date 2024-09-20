@@ -30,10 +30,16 @@ export const PostArticleForm = ({ user, allTopics }) => {
   };
 
   return (
-    <section className="column-container">
+    <section
+      className="column-container"
+      aria-labelledby="post-article-form-heading"
+    >
+      <h2 id="post-article-form-heading" className="visually-hidden">
+        Post a New Article
+      </h2>
       {articlePosted ? (
         <>
-          <p>Article posted!</p>
+          <p role="status">Article posted successfully!</p>
           <Link to={`../articles/${articlePosted.article_id}`}>
             View it here
           </Link>
@@ -41,37 +47,54 @@ export const PostArticleForm = ({ user, allTopics }) => {
       ) : (
         <section className="content">
           <form className="form" onSubmit={handleSubmit}>
-            <label>Title:</label>
-            <input type="text" required={true} />
-            <label>Body Text:</label>
-            <textarea
-              className="textarea"
-              rows="8"
-              cols="40"
-              type="text"
-              required={true}
-            />
-            <label>Topic:</label>
-            <select
-              required={true}
-              className="drop-down"
-              defaultValue="default"
-            >
-              <option key="default" value="default" disabled={true}>
-                Please select a category
-              </option>
-              {allTopics.map((topic) => {
-                return (
+            <div className="form-group">
+              <label htmlFor="title">Title:</label>
+              <input id="title" type="text" required />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="body">Body Text:</label>
+              <textarea
+                id="body"
+                className="textarea"
+                rows="8"
+                cols="40"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="topic">Topic:</label>
+              <select
+                id="topic"
+                required
+                className="drop-down"
+                defaultValue="default"
+              >
+                <option key="default" value="default" disabled>
+                  Please select a category
+                </option>
+                {allTopics.map((topic) => (
                   <option key={topic.slug} value={topic.slug}>
                     {topic.slug[0].toUpperCase() + topic.slug.substring(1)}
                   </option>
-                );
-              })}
-            </select>
-            <label>Image URL:</label>
-            <input type="text" required={true} />
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="article_img_url">Image URL:</label>
+              <input id="article_img_url" type="text" required />
+            </div>
+
             <button type="submit">Submit</button>
           </form>
+
+          {error && (
+            <p role="alert" className="error">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </section>
       )}
     </section>

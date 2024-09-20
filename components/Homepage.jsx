@@ -2,12 +2,12 @@ import { ArticlesContainer } from "./ArticlesContainer";
 
 export const Homepage = ({ allArticles, totalPages, setPage }) => {
   return (
-    <div className="page">
+    <main className="page" role="main" aria-labelledby="homepage-heading">
       <ArticlesContainer
         allArticles={allArticles}
         totalPages={totalPages}
         setPage={setPage}
       />
-    </div>
+    </main>
   );
 };

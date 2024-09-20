@@ -67,49 +67,62 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
   }, [updatedArticle.votes]);
 
   return (
-    <section className="column-container">
-      <h2>{selectedArticle.title}</h2>
-      <img src={selectedArticle.article_img_url} alt={selectedArticle.title} />
+    <article className="column-container" aria-labelledby="article-title">
+      <h2 id="article-title">{selectedArticle.title}</h2>
+      <img
+        src={selectedArticle.article_img_url}
+        alt={`Image for ${selectedArticle.title}`}
+      />
       <p>
-        <b>Topic:</b>{" "}
+        <strong>Topic:</strong>{" "}
         {selectedArticle.topic[0].toUpperCase() +
           selectedArticle.topic.substring(1)}
       </p>
       <p>
-        <b>Author:</b> {selectedArticle.author}
+        <strong>Author:</strong> {selectedArticle.author}
       </p>
       <p>{selectedArticle.body}</p>
 
-      <section className="vote-container">
-        <button onClick={handleIncrease}>+</button>
-        <button onClick={handleDecrease}>-</button>
+      <section className="vote-container" aria-label="Vote controls">
+        <button aria-label="Increase votes" onClick={handleIncrease}>
+          +
+        </button>
+        <button aria-label="Decrease votes" onClick={handleDecrease}>
+          -
+        </button>
         <p>
-          <b>Votes:{updatedArticle.votes}</b>
+          <strong>Votes: {updatedArticle.votes}</strong>
         </p>
       </section>
       {voteError && (
-        <p className="error">
+        <p className="error" role="alert">
           Sorry, your vote couldn't be added. Please try again later.
         </p>
       )}
+
       {!formOpen || commentError ? (
         <div className="content">
-          <button className="post-comment-button" onClick={handleClick}>
+          <button
+            className="post-comment-button"
+            onClick={handleClick}
+            aria-expanded={formOpen}
+            aria-controls="comment-form"
+          >
             New comment
           </button>
           {commentAdded ? <p>Comment Posted</p> : null}
         </div>
       ) : (
-        <section className="content">
+        <section className="content" id="comment-form">
           <form className="form" onSubmit={handleSubmit}>
-            <label>Username: </label>
-            <input type="text" required={true} />
-            <label>Comment: </label>
+            <label htmlFor="username">Username: </label>
+            <input id="username" type="text" required={true} />
+            <label htmlFor="comment">Comment: </label>
             <textarea
               className="textarea"
+              id="comment"
               rows="8"
               cols="50"
-              Type="text"
               required={true}
             />
             <button type="submit">Submit</button>
@@ -117,6 +130,7 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
           {commentAdded ? <p>Comment Posted</p> : null}
         </section>
       )}
+
       {commentAdded ? (
         <div className="comments">
           <p className="comment-body">{commentAdded.body}</p>
@@ -128,9 +142,12 @@ export const SingleArticleContainer = ({ selectedArticle, user }) => {
           </div>
         </div>
       ) : null}
+
       {commentError ? (
-        <p>There was a problem posting your comment. Please try again!</p>
+        <p role="alert">
+          There was a problem posting your comment. Please try again!
+        </p>
       ) : null}
-    </section>
+    </article>
   );
 };

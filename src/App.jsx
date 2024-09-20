@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header user={user} />
       {isHomePage && (
         <ParamsBar
           setSortBy={setSortBy}

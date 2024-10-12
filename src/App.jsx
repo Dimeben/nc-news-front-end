@@ -10,6 +10,7 @@ import { AllTopicsPage } from "../components/AllTopicsPage";
 import { TopicPage } from "../components/TopicPage";
 import { PageNotFound } from "../components/PageNotFound";
 import { PostArticlePage } from "../components/PostArticlePage";
+import { Loading } from "../components/Loading";
 
 function App() {
   const temporaryDefaultUser = {
@@ -53,59 +54,65 @@ function App() {
   return (
     <>
       <Header user={user} />
-      {isHomePage && (
-        <ParamsBar
-          setSortBy={setSortBy}
-          setOrder={setOrder}
-          setLimit={setLimit}
-        />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          {isHomePage && (
+            <ParamsBar
+              setSortBy={setSortBy}
+              setOrder={setOrder}
+              setLimit={setLimit}
+            />
+          )}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Homepage
+                  allArticles={allArticles}
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  setPage={setPage}
+                  totalPages={totalPages}
+                />
+              }
+            />
+            <Route
+              path="/articles/:articleid"
+              element={
+                <SingleArticlePage
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  user={user}
+                />
+              }
+            />
+            <Route
+              path="/topics"
+              element={<AllTopicsPage allTopics={allTopics} />}
+            />
+            <Route
+              path="/topics/:topicslug"
+              element={
+                <TopicPage allArticles={allArticles} allTopics={allTopics} />
+              }
+            />
+            <Route
+              path="newarticle"
+              element={
+                <PostArticlePage
+                  user={user}
+                  allTopics={allTopics}
+                  totalArticles={totalArticles}
+                />
+              }
+            />
+            <Route path="/404" element={<PageNotFound />} />;
+            <Route path="*" element={<PageNotFound />} />;
+          </Routes>
+        </>
       )}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Homepage
-              allArticles={allArticles}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setPage={setPage}
-              totalPages={totalPages}
-            />
-          }
-        />
-        <Route
-          path="/articles/:articleid"
-          element={
-            <SingleArticlePage
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              user={user}
-            />
-          }
-        />
-        <Route
-          path="/topics"
-          element={<AllTopicsPage allTopics={allTopics} />}
-        />
-        <Route
-          path="/topics/:topicslug"
-          element={
-            <TopicPage allArticles={allArticles} allTopics={allTopics} />
-          }
-        />
-        <Route
-          path="newarticle"
-          element={
-            <PostArticlePage
-              user={user}
-              allTopics={allTopics}
-              totalArticles={totalArticles}
-            />
-          }
-        />
-        <Route path="/404" element={<PageNotFound />} />;
-        <Route path="*" element={<PageNotFound />} />;
-      </Routes>
     </>
   );
 }
